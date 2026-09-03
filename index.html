@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kawsar10 - Verify to Download</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f172a;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 40px auto;
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        h2 { margin-bottom: 10px; color: #38bdf8; }
+        p { color: #94a3b8; font-size: 14px; margin-bottom: 20px; }
+        .btn {
+            display: block;
+            background: #334155;
+            color: white;
+            padding: 12px;
+            margin: 10px 0;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn.tiktok { background: #000000; border: 1px solid #333; }
+        .btn.facebook { background: #1877f2; }
+        .btn.telegram { background: #229ed9; }
+        .btn:hover { opacity: 0.8; }
+        .verify-btn {
+            background: #22c55e;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🔒 Verification Required</h2>
+        <p>Complete the steps below to unlock your download link.</p>
+
+        <a href="https://tiktok.com/@kawsar10" target="_blank" class="btn tiktok" onclick="unlockStep(1)">1. Follow on TikTok</a>
+        <a href="https://www.facebook.com/profile.php?id=61553032553853" target="_blank" class="btn facebook" onclick="unlockStep(2)">2. Follow Facebook ID </a>
+        <a href="https://t.me/kawsarmods44" target="_blank" class="btn telegram" onclick="unlockStep(3)">3. Join Telegram Channel</a>
+
+        <button id="finalBtn" class="verify-btn" onclick="goToDownload()">Proceed to Download 🚀</button>
+    </div>
+
+    <script>
+        let completedSteps = { 1: false, 2: false, 3: false };
+
+        function unlockStep(step) {
+            completedSteps[step] = true;
+            checkAllCompleted();
+        }
+
+        function checkAllCompleted() {
+            if (completedSteps[1] && completedSteps[2] && completedSteps[3]) {
+                document.getElementById('finalBtn').style.display = 'block';
+            }
+        }
+
+        function goToDownload() {
+            window.location.href = 'download.html';
+        }
+    </script>
+</body>
+</html>
