@@ -111,10 +111,30 @@
         .btn-telegram {
             background: linear-gradient(135deg, #0088cc, #006699);
         }
+        
+        /* লক করা ডাউনলোডের স্টাইল */
         .btn-proceed {
-            background: linear-gradient(135deg, #00b09b, #96c93d);
+            background: #334155;
+            color: #94a3b8;
             margin-top: 20px;
             font-size: 16px;
+            pointer-events: none;
+            opacity: 0.5;
+            transition: all 0.4s ease;
+        }
+        /* আনলক হলে যে সুন্দর রঙ আসবে */
+        .btn-proceed.unlocked {
+            background: linear-gradient(135deg, #00b09b, #96c93d);
+            color: white;
+            pointer-events: auto;
+            opacity: 1;
+            box-shadow: 0 10px 25px rgba(0, 176, 155, 0.4);
+            animation: pulseBtn 1.5s infinite;
+        }
+        @keyframes pulseBtn {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
         }
         .btn i {
             margin-right: 12px;
@@ -128,27 +148,48 @@
             <i class="fas fa-shield-alt"></i>
         </div>
         <h2>Verification Required</h2>
-        <p>       / :</p>
+        <p>ফাইলটি আনলক করতে নিচের ৩টি টাস্ক কমপ্লিট করুন:</p>
         
-        <!-- .   -->
-        <a href="https://www.tiktok.com/@mdkawssr10" class="btn btn-tiktok" target="_blank">
-            <i class="fab fa-tiktok"></i> 1. Follow on TikTok
+        <!-- ১. টিকটক লিংক -->
+        <a href="https://www.tiktok.com/@Mdkawssr10" class="btn btn-tiktok" target="_blank" onclick="unlockStep(1)">
+            <i class="fab fa-tiktok"></i> <span id="t1-text">1. Follow on TikTok</span>
         </a>
         
-        <!-- .   -->
-        <a href="https://www.facebook.com/profile.php?id=61553032553853" class="btn btn-fb" target="_blank">
-            <i class="fab fa-facebook-f"></i> 2. Follow Facebook ID
+        <!-- ২. ফেসবুক লিংক -->
+        <a href="https://www.facebook.com/profile.php?id=61553032553853" class="btn btn-fb" target="_blank" onclick="unlockStep(2)">
+            <i class="fab fa-facebook-f"></i> <span id="t2-text">2. Follow Facebook ID</span>
         </a>
         
-        <!-- .     -->
-        <a href="https://t.me/kawsarmods44" class="btn btn-telegram" target="_blank">
-            <i class="fab fa-telegram-plane"></i> 3. Join Telegram Channel
+        <!-- ৩. টেলিগ্রাম চ্যানেল লিংক -->
+        <a href="https://t.me/kawsarmods44" class="btn btn-telegram" target="_blank" onclick="unlockStep(3)">
+            <i class="fab fa-telegram-plane"></i> <span id="t3-text">3. Join Telegram Channel</span>
         </a>
 
-        <!--        -->
-        <a href="download.html" class="btn btn-proceed">
-            <i class="fas fa-check-circle"></i> Continue to Download
+        <!-- লক করা ডাউনলোড বাটন -->
+        <a href="download.html" id="downloadBtn" class="btn btn-proceed">
+            <i class="fas fa-lock" id="lockIcon"></i> Continue to Download
         </a>
     </div>
+
+    <script>
+        let clicked = { 1: false, 2: false, 3: false };
+
+        function unlockStep(step) {
+            clicked[step] = true;
+            
+            // যেটিতে ক্লিক করা হয়েছে সেটিতে টিক মার্ক দেখাবে
+            if(step === 1) document.getElementById('t1-text').innerHTML = "1. TikTok Followed ✓";
+            if(step === 2) document.getElementById('t2-text').innerHTML = "2. Facebook Followed ✓";
+            if(step === 3) document.getElementById('t3-text').innerHTML = "3. Telegram Joined ✓";
+
+            // তিনটি কমপ্লিট হলেই কেবল নিচের ডাউনলোড বাটন আনলক হবে
+            if (clicked[1] && clicked[2] && clicked[3]) {
+                let btn = document.getElementById('downloadBtn');
+                btn.classList.add('unlocked');
+                document.getElementById('lockIcon').className = "fas fa-check-circle";
+                btn.innerHTML = '<i class="fas fa-check-circle"></i> Continue to Download';
+            }
+        }
+    </script>
 </body>
 </html>
