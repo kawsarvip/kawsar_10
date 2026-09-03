@@ -1,87 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kawsar10 - Verify to Download</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Secure Download - Verification</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #0f172a;
-            color: #ffffff;
-            text-align: center;
-            padding: 20px;
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
         }
-        .container {
-            max-width: 400px;
-            margin: 40px auto;
-            background: #1e293b;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+            background-size: 300% 300%;
+            animation: gradientMove 10s ease infinite;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
         }
-        h2 { margin-bottom: 10px; color: #38bdf8; }
-        p { color: #94a3b8; font-size: 14px; margin-bottom: 20px; }
-        .btn {
-            display: block;
-            background: #334155;
-            color: white;
-            padding: 12px;
-            margin: 10px 0;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        .btn.tiktok { background: #000000; border: 1px solid #333; }
-        .btn.facebook { background: #1877f2; }
-        .btn.telegram { background: #229ed9; }
-        .btn:hover { opacity: 0.8; }
-        .verify-btn {
-            background: #22c55e;
-            color: white;
-            border: none;
+        .card {
             width: 100%;
-            padding: 14px;
-            border-radius: 8px;
+            max-width: 440px;
+            background: rgba(20, 24, 39, 0.75);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 40px 25px;
+            border-radius: 28px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff007f, #7928ca, #0070f3, #00dfd8);
+        }
+        .icon-box {
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, rgba(121, 40, 202, 0.2), rgba(0, 112, 243, 0.2));
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: #00dfd8;
+            box-shadow: 0 0 25px rgba(0, 223, 216, 0.2);
+        }
+        h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 14px 20px;
+            margin: 12px 0;
+            color: white;
+            text-decoration: none;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.15);
+        }
+        .btn-tiktok {
+            background: linear-gradient(135deg, #000000, #222222);
+        }
+        .btn-fb {
+            background: linear-gradient(135deg, #1877f2, #0052cc);
+        }
+        .btn-telegram {
+            background: linear-gradient(135deg, #0088cc, #006699);
+        }
+        .btn-proceed {
+            background: linear-gradient(135deg, #00b09b, #96c93d);
+            margin-top: 20px;
             font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 15px;
-            display: none;
+        }
+        .btn i {
+            margin-right: 12px;
+            font-size: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>🔒 Verification Required</h2>
-        <p>Complete the steps below to unlock your download link.</p>
+    <div class="card">
+        <div class="icon-box">
+            <i class="fas fa-shield-alt"></i>
+        </div>
+        <h2>Verification Required</h2>
+        <p>       / :</p>
+        
+        <!-- .   -->
+        <a href="https://www.tiktok.com/@mdkawsar10" class="btn btn-tiktok" target="_blank">
+            <i class="fab fa-tiktok"></i> 1. Follow on TikTok
+        </a>
+        
+        <!-- .   -->
+        <a href="https://www.facebook.com/profile.php?id=61553032553853" class="btn btn-fb" target="_blank">
+            <i class="fab fa-facebook-f"></i> 2. Follow Facebook ID
+        </a>
+        
+        <!-- .     -->
+        <a href="https://t.me/kawsarmods44" class="btn btn-telegram" target="_blank">
+            <i class="fab fa-telegram-plane"></i> 3. Join Telegram Channel
+        </a>
 
-        <a href="https://tiktok.com/@kawsar10" target="_blank" class="btn tiktok" onclick="unlockStep(1)">1. Follow on TikTok</a>
-        <a href="https://www.facebook.com/profile.php?id=61553032553853" target="_blank" class="btn facebook" onclick="unlockStep(2)">2. Follow Facebook ID </a>
-        <a href="https://t.me/kawsarmods44" target="_blank" class="btn telegram" onclick="unlockStep(3)">3. Join Telegram Channel</a>
-
-        <button id="finalBtn" class="verify-btn" onclick="goToDownload()">Proceed to Download 🚀</button>
+        <!--        -->
+        <a href="download.html" class="btn btn-proceed">
+            <i class="fas fa-check-circle"></i> Continue to Download
+        </a>
     </div>
-
-    <script>
-        let completedSteps = { 1: false, 2: false, 3: false };
-
-        function unlockStep(step) {
-            completedSteps[step] = true;
-            checkAllCompleted();
-        }
-
-        function checkAllCompleted() {
-            if (completedSteps[1] && completedSteps[2] && completedSteps[3]) {
-                document.getElementById('finalBtn').style.display = 'block';
-            }
-        }
-
-        function goToDownload() {
-            window.location.href = 'download.html';
-        }
-    </script>
 </body>
 </html>

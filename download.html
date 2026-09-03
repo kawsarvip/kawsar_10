@@ -1,49 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kawsar10 - Download File</title>
+    <title>Redirecting...</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        //          
+        setTimeout(function() {
+            window.location.href = "https://t.me/your_telegram_channel_link";
+        }, 3000);
+    </script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #0f172a;
-            color: #ffffff;
-            text-align: center;
-            padding: 20px;
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
         }
-        .container {
-            max-width: 400px;
-            margin: 50px auto;
-            background: #1e293b;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #09122c, #001f3f, #1a0033);
+            background-size: 300% 300%;
+            animation: gradientMove 10s ease infinite;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
         }
-        h2 { color: #22c55e; margin-bottom: 10px; }
-        p { color: #94a3b8; font-size: 14px; margin-bottom: 25px; }
-        .download-btn {
-            background: #3b82f6;
-            color: white;
-            padding: 15px 25px;
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .card {
+            width: 100%;
+            max-width: 420px;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 40px 25px;
+            border-radius: 28px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #00b09b, #96c93d);
+        }
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 176, 155, 0.15);
+            border: 1px solid rgba(0, 176, 155, 0.3);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            color: #00efd1;
+            box-shadow: 0 0 30px rgba(0, 239, 209, 0.25);
+            animation: pulseIcon 2s infinite;
+        }
+        @keyframes pulseIcon {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 239, 209, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(0, 239, 209, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 239, 209, 0); }
+        }
+        h2 {
+            color: #00efd1;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        p {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .manual-link {
+            color: #38bdf8;
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            display: inline-block;
-            transition: 0.3s;
+            font-weight: 600;
+            border-bottom: 1px dashed #38bdf8;
         }
-        .download-btn:hover { background: #2563eb; }
+        .manual-link:hover {
+            color: #7dd3fc;
+        }
+        .loader {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #00efd1;
+            border-radius: 50%;
+            animation: bounceDot 1.4s infinite ease-in-out both;
+        }
+        .dot:nth-child(1) { animation-delay: -0.32s; }
+        .dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes bounceDot {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1.0); }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>🎉 Verification Successful!</h2>
-        <p>Your file is ready to download.</p>
+    <div class="card">
+        <div class="icon-box">
+            <i class="fas fa-check"></i>
+        </div>
+        <h2>  !</h2>
+        <p>     ...</p>
         
-        <!-- আপনার ফাইল বা এপিকে (APK) লিংক এখানে বসাবেন -->
-        <a href="https://t.me/+hVzr8OXla6hjMDNl" class="download-btn" target="_blank">Download APK Now 📥</a>
+        <div class="loader">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <p style="margin-top: 25px;"><small>   <a href="https://t.me/+hVzr8OXla6hjMDNl" class="manual-link">  </a></small></p>
     </div>
 </body>
 </html>
